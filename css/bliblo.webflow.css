@@ -879,6 +879,7 @@ figcaption {
 }
 
 .hero-text {
+  letter-spacing: 2rem;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(to right, #eec5bd, #f3b1a5 35%, #c6caf6 72%, #dad9e9);
   -webkit-background-clip: text;
@@ -2175,7 +2176,7 @@ figcaption {
 .paragraph {
   color: #c4c7ce;
   mix-blend-mode: normal;
-  font-size: 43px;
+  font-size: 4vw;
 }
 
 .paragraph-2 {
@@ -2186,6 +2187,10 @@ figcaption {
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1350px;
+  }
+
+  .hero-text {
+    letter-spacing: 2rem;
   }
 
   .logo-grid {
@@ -2213,6 +2218,11 @@ figcaption {
   .card-text-holder.small {
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  .paragraph {
+    margin-top: 10px;
+    font-size: 3vw;
   }
 }
 
@@ -2727,6 +2737,7 @@ figcaption {
   }
 
   .hero-text {
+    letter-spacing: 1rem;
     font-size: 16vw;
   }
 
@@ -2917,6 +2928,14 @@ figcaption {
     margin-bottom: 1em;
     margin-left: 1em;
     margin-right: 1em;
+  }
+
+  .paragraph {
+    font-weight: 500;
+  }
+
+  .paragraph-2 {
+    font-size: 100%;
   }
 }
 
