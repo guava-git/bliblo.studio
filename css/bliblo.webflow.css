@@ -19,8 +19,7 @@ body {
   font-family: Manrope, sans-serif;
   font-size: 14px;
   line-height: 1.2;
-  cursor: url('../images/circle-icon.ico') 32 32, auto !important;
-  overflow-x: hidden;
+  cursor: url('../images/blibloicon.ico'), auto;
 }
 
 h1 {
@@ -30,8 +29,8 @@ h1 {
   background-clip: text;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-size: 450%;
-  font-weight: 400;
+  font-size: 75px;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -107,7 +106,6 @@ a {
   font-weight: 600;
   text-decoration: none;
   transition: color .35s;
-  cursor: url('../images/star-icon.ico') 32 32, auto !important
 }
 
 a:hover {
@@ -159,7 +157,7 @@ figcaption {
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
-  padding: 1em;
+  padding: 2em;
 }
 
 .container.nav-container {
@@ -1169,13 +1167,13 @@ figcaption {
 }
 
 .experience-section {
-  /*padding-top: 90px;
-  padding-bottom: 90px;*/
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .experience-cards-holder {
   perspective: 1000px;
-  margin-top: 20px;
+  margin-top: 90px;
 }
 
 .experience-grid {
@@ -1413,7 +1411,7 @@ figcaption {
   grid-row-gap: 20px;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 5vh;
+  margin-bottom: 20vh;
   display: flex;
 }
 
@@ -1445,6 +1443,7 @@ figcaption {
 
 .trusted-content {
   padding-top: 5rem;
+  padding-bottom: 5rem;
   position: relative;
 }
 
@@ -2028,7 +2027,6 @@ figcaption {
   width: 100%;
   height: 100%;
   perspective: 1000px;
-  padding: 2.5%;
   display: flex;
 }
 
@@ -2215,7 +2213,7 @@ figcaption {
   }
 
   .experience-cards-holder {
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .experience-card-text-holder.padding {
@@ -2269,7 +2267,7 @@ figcaption {
 
 @media screen and (max-width: 991px) {
   h1 {
-    font-size: 450%;
+    font-size: 55px;
   }
 
   h2 {
@@ -2506,7 +2504,7 @@ figcaption {
 
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: 450%;
+    font-size: 42px;
   }
 
   h2 {
@@ -2651,7 +2649,7 @@ figcaption {
 
 @media screen and (max-width: 479px) {
   h1 {
-    font-size: 450%;
+    font-size: 34px;
   }
 
   h2 {
@@ -3076,61 +3074,4 @@ figcaption {
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(#eec3ba, #d2d3ee);
   border-radius: 10px;
-}
-
-/* ------------- logo animation ------------- */
-
-.front-page {
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100%;
-  padding-bottom: 5%;
-}
-
-.logo-animation{
-    margin: 5%;
-}
-
-/* ------------- front page buttons ------------- */
-
-.button-grid {
-  width: 80%;
-  max-width: 1900px;
-  display: flex;
-  gap: 10%;
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 25px;
-}
-
-.grid-button {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid white;
-  border-radius: 1rem;
-  background-color: transparent;
-  color: white;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.grid-button:hover {
-  background: linear-gradient(to right, #eec5bd, #f3b1a5 35%, #c6caf6 72%, #dad9e9);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border: 2px linear-gradient(to right, #eec5bd, #f3b1a5 35%, #c6caf6 72%, #dad9e9);
-  border-radius: 0rem;
-}
-
-@media (max-width: 640px) {
-  .button-grid {
-    flex-direction: column;
-    gap: 2.5vh;
-  }
 }
