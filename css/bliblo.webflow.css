@@ -3085,7 +3085,7 @@ figcaption {
   flex-direction: column; 
   justify-content: center; 
   align-items: center; 
-  height: 100%;
+  height: 100vh;
   padding-bottom: 5%;
 }
 
@@ -3132,5 +3132,10 @@ figcaption {
   .button-grid {
     flex-direction: column;
     gap: 2.5vh;
+  }
+
+  .logo-animation {
+    padding-top: 10vh;
+    padding-bottom: 8vh;
   }
 }
