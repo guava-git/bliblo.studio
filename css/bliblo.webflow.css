@@ -2649,6 +2649,34 @@ figcaption {
   }
 }
 
+@media screen and (max-width: 615px) {
+  .footer-social-media-container {
+    flex-direction: column;
+  }
+  
+  .social-media-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 12px; 
+    width: 100%;
+  }
+
+  .social-media-content > .fade-in-on-scroll {
+    grid-column: 1 / -1;
+  }
+
+  .social-media-link {
+    margin-left: 0 !important;
+    max-width: none !important;
+    width: 100%;
+  }
+
+  .social-media-icon {
+    width: 40px; 
+    height: 40px;
+  }
+}
+
 @media screen and (max-width: 479px) {
   h1 {
     font-size: 450%;
