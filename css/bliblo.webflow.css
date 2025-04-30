@@ -1169,8 +1169,7 @@ figcaption {
 }
 
 .experience-section {
-  /*padding-top: 90px;
-  padding-bottom: 90px;*/
+  padding-bottom: 5vh;
 }
 
 .experience-cards-holder {
@@ -2202,7 +2201,7 @@ figcaption {
   }
 
   .container {
-    max-width: 1350px;
+    max-width: 1555px;
   }
 
   .hero-text {
@@ -2653,11 +2652,11 @@ figcaption {
   .footer-social-media-container {
     flex-direction: column;
   }
-  
+
   .social-media-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 12px; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
     width: 100%;
   }
 
@@ -2672,7 +2671,7 @@ figcaption {
   }
 
   .social-media-icon {
-    width: 40px; 
+    width: 40px;
     height: 40px;
   }
 }
@@ -3109,10 +3108,10 @@ figcaption {
 /* ------------- logo animation ------------- */
 
 .front-page {
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   padding-bottom: 5%;
 }
@@ -3143,7 +3142,7 @@ figcaption {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
-  cursor: pointer;
+  cursor: url('../images/star-icon.ico') 32 32, auto !important;
   transition: all 0.3s ease-in-out;
 }
 
@@ -3167,3 +3166,388 @@ figcaption {
     padding-bottom: 8vh;
   }
 }
+
+
+
+
+
+
+
+
+    .content-section {
+      background-color: black;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      padding-bottom: 5vh;
+    }
+
+    .content-display {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transform: translateY(20px);
+      z-index: 2;
+    }
+
+    .content-display.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      transform: translateY(0);
+    }
+
+    .buttons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      opacity: 0;
+      transition: opacity 0.5s ease-out;
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      pointer-events: none;
+      visibility: hidden;
+      z-index: 1;
+    }
+
+    .buttons-grid.visible {
+      opacity: 1;
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    @media (min-width: 768px) {
+      .buttons-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        top: 32px;
+        left: 32px;
+        right: 32px;
+      }
+
+      .content-section {
+        padding: 32px;
+        min-height: 350px;
+      }
+    }
+
+    .content-button {
+      width: 100%;
+      background-color: #000000;
+      text-align: left;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      cursor: url('../images/star-icon.ico') 32 32, auto !important;
+      border: none;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transform: scale(1);
+    }
+
+    .content-button:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      transform: scale(1.03);
+    }
+
+    .button-border {
+      position: absolute;
+      inset: 0;
+      border: 0px solid transparent;
+      border-radius: 8px;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9) border-box;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .gradient-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 1.7%;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9);
+    }
+
+    .button-content {
+      padding-left: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .button-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .button-container.visible:hover .button-title {
+      background: white;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    @media (min-width: 768px) {
+      .button-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    .arrow-icon {
+      margin-top: 16px;
+      text-align: right;
+    }
+
+    .arrow-icon svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.2s;
+    }
+
+    .arrow-gradient {
+      stroke: url(#arrow-gradient);
+    }
+
+    .content-button:hover .arrow-icon svg {
+      transform: translateX(4px);
+    }
+
+    /* Content display area */
+    .content-display {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transform: translateY(20px);
+      z-index: 2;
+    }
+
+    .content-display.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      transform: translateY(0);
+    }
+
+    .content-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      background: white;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media (min-width: 768px) {
+      .content-title {
+        font-size: 1.875rem;
+      }
+
+      .content-display {
+        top: 32px;
+        left: 32px;
+        right: 32px;
+      }
+    }
+
+    .content-text {
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .content-wrapper h2.medium-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.05em;
+    }
+
+    .content-wrapper h3.small-heading {
+      font-size: 1.25rem;
+      font-weight: 777;
+      margin: 0;
+      background: white;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .content-wrapper p {
+      margin: 0;
+      color: #e5e7eb;
+      line-height: 1.8;
+    }
+
+    .content-display.fading {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      margin-top: 32px;
+      margin-bottom: 24px;
+      margin-left: 4px;
+      background: none;
+      border: none;
+      cursor: url('../images/star-icon.ico') 32 32, auto !important;
+      transition: all 0.4s ease;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back-button:hover {
+      transform: translateX(-4px);
+    }
+
+    .back-button svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      stroke: url(#arrow-gradient);
+    }
+
+    /* Alternative buttons */
+    .alt-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+
+    .alt-buttons.active {
+      opacity: 1;
+    }
+
+    .alt-button {
+      padding: 12px 20px;
+      background-color: black;
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      border: none;
+      cursor: url('../images/star-icon.ico') 32 32, auto !important;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alt-button:hover {
+      transform: scale(1.03);
+    }
+
+    .alt-button:active {
+      transform: scale(0.97);
+    }
+
+    .alt-button-border {
+      position: absolute;
+      inset: 0;
+      border: 2px solid transparent;
+      border-radius: 9999px;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9) border-box;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .alt-button span.text {
+      position: relative;
+      z-index: 10;
+      color: white;
+    }
+
+    .alt-button span.hover-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .alt-button:hover span.hover-gradient {
+      opacity: 0.2;
+    }
+
+    /* Button entry animations */
+    .button-container {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .button-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .button-container:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .button-container:nth-child(2) {
+      transition-delay: 0.25s;
+    }
+
+    .button-container:nth-child(3) {
+      transition-delay: 0.4s;
+    }
