@@ -3457,6 +3457,30 @@ figcaption {
       stroke: url(#arrow-gradient);
     }
 
+    .sources-button {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      font-size: 1.25rem;
+      margin-top: 32px;
+      margin-bottom: 24px;
+      margin-left: 4px;
+      background: none;
+      border: none;
+      cursor: url('../images/star-icon.ico') 32 32, auto !important;
+      transition: all 0.4s ease;
+      background: linear-gradient(128deg, #eec5bd, #f3b1a5 26%, #c6caf6 74%, #dad9e9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sources-button:hover {
+      filter: brightness(1.2);
+    }
+
     /* Alternative buttons */
     .alt-buttons {
       display: flex;
