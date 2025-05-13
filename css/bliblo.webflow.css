@@ -1174,7 +1174,6 @@ figcaption {
 
 .experience-cards-holder {
   perspective: 1000px;
-  margin-top: 20px;
 }
 
 .experience-grid {
@@ -1191,7 +1190,7 @@ figcaption {
 
 .experience-card {
   z-index: 5;
-  width: 100%;
+  width: 100%; 
   background-color: #30363d;
   border-radius: 26px;
   justify-content: center;
@@ -2218,7 +2217,7 @@ figcaption {
   filter: brightness(1.2);
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1555px) {
   .section {
     text-align: left;
     margin-top: 0;
@@ -2287,6 +2286,20 @@ figcaption {
     border-radius: 10px;
     font-size: 1vw;
     font-weight: 300;
+  }
+}
+
+@media screen and (max-width: 1555px) {
+  .container {
+    max-width: 1345px;
+  }
+
+  .card-title{
+    font-size: 34px;
+  }
+
+  .paragraph-2{
+    font-size: 19px;
   }
 }
 
