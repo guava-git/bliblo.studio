@@ -46,7 +46,7 @@
         </div>
         <div class="experience-cards-holder">
           <div class="experience-grid">
-            <a href="https://bliblostudio.itch.io/empoweryourintent" target="_blank">
+            <div onclick="showOverlay()" style="cursor: url('images/star-icon.ico') 32 32, auto !important;">
             <div id="w-node-_1261dedf-b3c9-2162-53e7-29ae1d8c7955-5a2277ef" class="experience-wrapper">
               <div id="w-node-c9a3eb7f-e26e-bb52-e19d-39f848eddb94-5a2277ef" data-w-id="c9a3eb7f-e26e-bb52-e19d-39f848eddb94" class="experience-card">
                 <div data-w-id="3488554c-fe1a-ba8d-8eaa-2749383949b9" class="light-wrapper-in-front">
@@ -76,12 +76,67 @@
                 </div>
               </div>
             </div>
-            </a>
+          </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="overlay" id="imageOverlay">
+        <div class="overlay-content">
+            <a href="https://ko-fi.com/bliblostudio" class="image-link" target="_blank">
+                <div class="image-container">
+                    <img src="images/ko-fi.png" alt="Ko-fi">
+                </div>
+                <span>Ko-fi</span>
+            </a>
+
+            <a href="https://store.steampowered.com/app/3500010/Empower_Your_Intent/" class="image-link" target="_blank">
+                <div class="image-container">
+                    <img src="images/steam.png" alt="Steam">
+                </div>
+                <span>Steam</span>
+            </a>
+
+            <a href="https://bliblostudio.itch.io/empoweryourintent" class="image-link" target="_blank">
+                <div class="image-container">
+                    <img src="images/itch.png" alt="Itch.io">
+                </div>
+                <span>Itch.io</span>
+            </a>
+        </div>
+
+        <button class="close-button" onclick="hideOverlay()" aria-label="Close overlay"></button>
+    </div>
+
+    <script>
+        function showOverlay() {
+            const overlay = document.getElementById('imageOverlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideOverlay() {
+            const overlay = document.getElementById('imageOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close overlay when clicking outside the content
+        document.getElementById('imageOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideOverlay();
+            }
+        });
+
+        // Close overlay with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideOverlay();
+            }
+        });
+    </script>
 
   <div id="blog" class="section">
   <div class="container">
