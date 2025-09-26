@@ -1231,6 +1231,7 @@ figcaption {
 .experience-cards-holder {
   perspective: 1000px;
   max-width: 85vw;
+  margin: 0 auto;
 }
 
 .experience-grid {
