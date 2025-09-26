@@ -196,6 +196,8 @@ figcaption {
   color: white;
   position: relative;
   display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .gradient {
@@ -2770,7 +2772,7 @@ figcaption {
 
 @media screen and (max-width: 479px) {
   h1 {
-    font-size: 450%;
+    font-size: 250%;
   }
 
   h2 {
