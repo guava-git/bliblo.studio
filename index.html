@@ -25,31 +25,168 @@
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body>
+
+<nav class="navbar2">
+    <div class="navbar2-container">
+      <a>
+        <div class="logo2">
+          <img src="images/bliblologo.png"> 
+        </div>
+      </a>
+        
+        <ul class="nav-links2" id="navLinks2">
+            <li><a href="#cover">Home</a></li>
+            <li><a href="#experience">Products</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#footer">Contact</a></li>
+            <li><a href="https://ko-fi.com/bliblostudio" target="_blank" class="donate-btn2">Donate :)</a></li>
+        </ul>
+
+        <button class="mobile-menu-toggle2" id="mobileMenuToggle2">☰</button>
+    </div>
+</nav>
+
+<!-- Navbar2 JavaScript -->
+<script>
+// Mobile menu toggle for navbar2
+const mobileMenuToggle2 = document.getElementById('mobileMenuToggle2');
+const navLinks2 = document.getElementById('navLinks2');
+
+if (mobileMenuToggle2 && navLinks2) {
+    mobileMenuToggle2.addEventListener('click', () => {
+        navLinks2.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinks2.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            navLinks2.classList.remove('active');
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar2')) {
+            navLinks2.classList.remove('active');
+        }
+    });
+}
+
+// Run on load and resize
+window.addEventListener('load', syncLogoWidth);
+window.addEventListener('resize', syncLogoWidth);
+
+
+// Add scroll effect for navbar2
+window.addEventListener('scroll', () => {
+    const navbar2 = document.querySelector('.navbar2');
+    if (navbar2) {
+        if (window.scrollY > 50) {
+            navbar2.style.backdropFilter = 'blur(15px)';
+            navbar2.style.backgroundColor = 'rgba(33, 33, 33, 0.9)';
+        } else {
+            navbar2.style.backdropFilter = 'blur(10px)';
+            navbar2.style.backgroundColor = 'rgba(33, 33, 33, 0.8)';
+        }
+    }
+});
+</script>
+
+
+
   <div id="cover" class="section">
     <div class="front-page">
+      
+      <h1 class="interactive"><span class="highlight">Reclaim</span> your <span class="gradient">attention span</span></h1>
+      <h1 class="interactive"><span class="highlight">Rekindle</span> your <span class="gradient">intrinsic motivation</span></h1>
+
       <div class="logo-animation">
         <img src="videos/logo-loop.gif">
       </div>
-      <div class="button-grid">
-        <a href="https://www.ko-fi.com/bliblostudio" target="_blank" class="grid-button">SUPPORT US</a>
-        <a href="#footer" class="grid-button">CONNECT</a>
+
+      <script>
+        // Elements
+        const logo2 = document.querySelector('.logo2');
+        const logoAnimation = document.querySelector('.logo-animation');
+        const headings = document.querySelectorAll('.front-page h1');
+
+        if (logo2 && logoAnimation && headings.length > 0) {
+            // Hide logo-animation initially
+            logoAnimation.style.display = 'none';
+
+            let showingLogo = false;
+
+            logo2.addEventListener('click', () => {
+                if (showingLogo) {
+                    // Show headings, hide logo
+                    headings.forEach(h => h.style.display = 'block');
+                    logoAnimation.style.display = 'none';
+                    showingLogo = false;
+                } else {
+                    // Hide headings, show logo
+                    headings.forEach(h => h.style.display = 'none');
+                    logoAnimation.style.display = 'block';
+                    showingLogo = true;
+                }
+            });
+        }
+      </script>
+      
+      <div class="scroll-down">
+          <a href = "#experience"> <h5>↓ Products</h5> </a>
       </div>
+      
+      <!-- Interactive Text JavaScript -->
+      <script>
+        const headers = document.querySelectorAll(".interactive");
+        
+        document.addEventListener("mousemove", (e) => {
+          headers.forEach(h1 => {
+            const rect = h1.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const dx = e.clientX - centerX;
+            const dy = e.clientY - centerY;
+            
+            // Create a wider, elliptical influence zone by reducing the horizontal distance's weight.
+            // A lower value (e.g., 0.4) makes the zone wider. 1.0 makes it a perfect circle.
+            const horizontalWeight = 0.01;
+            const weighted_dx = dx * horizontalWeight;
+            const distance = Math.sqrt(weighted_dx * weighted_dx + dy * dy);
+            
+            const maxInfluence = 500; // How close the mouse has to be to trigger the effect.
+            const maxPush = 12; // The maximum distance the text will travel.
+            
+            if (distance < maxInfluence) {
+              const force = (1 - distance / maxInfluence) * maxPush;
+              const angle = Math.atan2(dy, dx);
+              const offsetX = -Math.cos(angle) * force;
+              const offsetY = -Math.sin(angle) * force;
+              
+              h1.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            } else {
+              // When the mouse is outside the influence zone, smoothly return to the original position.
+              h1.style.transform = "translate(0, 0)";
+            }
+          });
+        });
+      </script> 
     </div>
   </div>
+
+  
   <div id="experience" class="section">
     <div class="container">
       <div class="experience-section">
-        <div class="center-title">
-          <div class="title-holder">
-            <h1 class="title"> Empower Your Intent</h1>
-          </div>
-        </div>
+        
         <div class="experience-cards-holder">
           <div class="experience-grid">
-            <div onclick="showOverlay()" style="cursor: url('images/star-icon.ico') 32 32, auto !important;">
-            <div id="w-node-_1261dedf-b3c9-2162-53e7-29ae1d8c7955-5a2277ef" class="experience-wrapper">
-              <div id="w-node-c9a3eb7f-e26e-bb52-e19d-39f848eddb94-5a2277ef" data-w-id="c9a3eb7f-e26e-bb52-e19d-39f848eddb94" class="experience-card">
-                <div data-w-id="3488554c-fe1a-ba8d-8eaa-2749383949b9" class="light-wrapper-in-front">
+
+            <div class="experience-wrapper">
+              <a href="https://empoweryourintent.com" target="_blank" >
+              <div class="experience-card">
+                <div class="light-wrapper-in-front">
                   <div class="light">
                     <div class="light-outside"></div>
                   </div>
@@ -63,9 +200,9 @@
                     <div class="experience-gradient"></div>
                   </div>
                   <div class="experience-card-text-holder">
-                    <div class="card-title">Get the game here :)</div>
+                    <div class="card-title">Empower Your Intent</div>
                     <div class="experience-paragraph-holder">
-                      <p class="paragraph-2">Built on principles of neuroscience, psychology, and basic human empathy, EYI is a means to foster healthier relationships with engaging software and nurture cognitive skills like selective attention and intristic motivation.</p>
+                      <p class="paragraph-2">rhythm game designed to nurture cognitive skills and build better digital habits.</p>
                     </div>
                   </div>
                 </div>
@@ -75,42 +212,47 @@
                   </div>
                 </div>
               </div>
+              </a>
             </div>
-          </div>
+
+             <div class="experience-wrapper">
+              <a href="https://focusprimer.com" target="_blank">
+              <div class="experience-card">
+                <div class="light-wrapper-in-front">
+                  <div class="light">
+                    <div class="light-outside"></div>
+                  </div>
+                </div>
+                <div class="experience-card-content">
+                  <div class="experience-card-image-holder">
+                    <div data-poster-url="videos/trimclip-poster-00002.jpg" data-video-urls="videos/trimclip-transcode-2.mp4,videos/trimclip-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="w-background-video w-background-video-atom width-fit">
+                      <video id="second-video" autoplay="" loop="" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+                        <source src="videos/trimclip-transcode-2.mp4" data-wf-ignore="true">
+                        <source src="videos/trimclip-transcode.webm" data-wf-ignore="true">
+                      </video>
+                    </div>
+                </div>
+                  <div class="experience-card-text-holder">
+                    <div class="card-title">FocusPrimer</div>
+                    <div class="experience-paragraph-holder">
+                      <p class="paragraph-2">protocol designed to boost motivation and productivity before a bout of focused work.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="light-wrapper">
+                  <div class="light">
+                    <div class="light-inside"></div>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="overlay" id="imageOverlay">
-        <div class="overlay-content">
-
-            <a href="https://store.steampowered.com/app/3500010/Empower_Your_Intent/" class="image-link" target="_blank">
-                <div class="image-container">
-                    <img src="images/steam.png" alt="Steam">
-                </div>
-                <span>Steam</span>
-            </a>
-
-            <a href="https://bliblostudio.itch.io/empoweryourintent" class="image-link" target="_blank">
-                <div class="image-container">
-                    <img src="images/itch.png" alt="Itch.io">
-                </div>
-                <span>Itch.io</span>
-            </a>
-
-            <a href="https://ko-fi.com/bliblostudio" class="image-link" target="_blank">
-                <div class="image-container">
-                    <img src="images/ko-fi.png" alt="Ko-fi">
-                </div>
-                <span>Ko-fi</span>
-            </a>
-
-        </div>
-
-        <button class="close-button" onclick="hideOverlay()" aria-label="Close overlay"></button>
-    </div>
 
     <script>
         function showOverlay() {
@@ -191,7 +333,7 @@
               <div class="button-border"></div>
               <div class="gradient-border"></div>
               <div class="button-content">
-                <h3 class="button-title">Principles that drive EYI's mechanics</h3>
+                <h3 class="button-title">Why does FocusPrimer work so well?</h3>
                 <div class="arrow-icon">
                   <svg fill="none" class="arrow-gradient" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -226,141 +368,82 @@
     </div>
 
 
-
+    <!-- blog JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
       const sections = [
-        {
-          id: 1,
-          title: "Why should I care about addictive design?",
-          content: `<div class="content-wrapper">
-            <h2 class="medium-heading">RECLAIM YOUR ATTENTION</h2>
+    {
+      id: 1,
+      title: "Why should I care about addictive design?",
+      content: `<div class="content-wrapper">
+        <h2 class="medium-heading">RECLAIM YOUR ATTENTION</h2>
 
-            <h3 class="small-heading">Your Attention Is Your Most Valuable Resource:</h3>
-            <p>Our attention makes people money. Our digital landscape evolved to steal and degrade our attention at every corner. This leaves us more stressed and anxious. This leaves us less capable of maintaining meaningful connections, learning, and furthering our long-term goals.</p>
+        <h3 class="small-heading">Your Attention Is Your Most Valuable Resource:</h3>
+        <p>Our attention makes people money. Our digital landscape evolved to steal and degrade our attention at every corner. This leaves us more stressed and anxious. This leaves us less capable of maintaining meaningful connections, learning, and furthering our long-term goals.</p>
 
-            <h3 class="small-heading">Addictive Design Decimates Your Attention:</h3>
-            <p>Continual engagement with software that implements attention-grabbing tactics (essentially all mainstream social media and video games) has been proven to degrade our attention spans.</p>
+        <h3 class="small-heading">Addictive Design Decimates Your Attention:</h3>
+        <p>Continual engagement with software that implements attention-grabbing tactics (essentially all mainstream social media and video games) has been proven to degrade our attention spans.</p>
 
-            <h2 class="medium-heading">REKINDLE YOUR INTRINSIC MOTIVATION</h2>
+        <h2 class="medium-heading">REKINDLE YOUR INTRINSIC MOTIVATION</h2>
 
-            <h3 class="small-heading">The Unsung Hero of Success and Happiness:</h3>
-            <p>Intrinsic motivation is the ability to internally drive oneself to pursue tasks, rather than relying on external motivations and rewards. Cultivating this skill has been strongly linked to enhanced success, learning, performance, creativity, and goal attainment, as well as correlating strongly with greater psychological wellbeing and happiness.</p>
+        <h3 class="small-heading">The Unsung Hero of Success and Happiness:</h3>
+        <p>Intrinsic motivation is the ability to internally drive oneself to pursue tasks, rather than relying on external motivations and rewards. Cultivating this skill has been strongly linked to enhanced success, learning, performance, creativity, and goal attainment, as well as correlating strongly with greater psychological wellbeing and happiness.</p>
 
-            <h3 class="small-heading">Addictive Design Extinguishes Your Intrinsic Motivation:</h3>
-            <p>Continual engagement with software that implements external reward systems (essentially all mainstream social media and video games) has been proven to diminish our sense of intrinsic motivation.</p>
-          </div>`
-        },
-        {
-          id: 2,
-          title: "How does EYI help my motivation and attention?",
-          content: `<div class="content-wrapper">
-            <h2 class="medium-heading">EMPOWER</h2>
+        <h3 class="small-heading">Addictive Design Extinguishes Your Intrinsic Motivation:</h3>
+        <p>Continual engagement with software that implements external reward systems (essentially all mainstream social media and video games) has been proven to diminish our sense of intrinsic motivation.</p>
+      </div>`
+    },
+    {
+      id: 2,
+      title: "How does EYI help my motivation and attention?",
+      content: `<div class="content-wrapper">
+        <h2 class="medium-heading">EMPOWER</h2>
 
-            <p>EYI was engineered to minimize dopamine release and avoid external motivators.</p>
+        <p>EYI was engineered to minimize dopamine release and avoid external motivators.</p>
 
-            <p>Powerful, scientifically supported methods to reclaim motivation and attention include meditation, reading, exercise, community, and activities that require safe, consensual discomfort. However, constant exposure to high-dopamine stimuli greatly inhibits the brain's drive to engage in these behaviors consistently.</p>
+        <p>Powerful, scientifically supported methods to reclaim motivation and attention include meditation, reading, exercise, community, and activities that require safe, consensual discomfort. However, constant exposure to high-dopamine stimuli greatly inhibits the brain's drive to engage in these behaviors consistently.</p>
 
-            <p>Therefore, EYI is intended to serve as an intermediary to build your brain's capacity for activities that provide long-term gratification over instant-gratification.</p>
+        <p>Therefore, EYI is intended to serve as an intermediary to build your brain's capacity for activities that provide long-term gratification over instant-gratification.</p>
 
-            <h2 class="medium-heading">YOUR INTENT</h2>
+        <h2 class="medium-heading">YOUR INTENT</h2>
 
-            <p>EYI was designed to reinforce mindfulness while consuming entertaining software, such that the skills may be applied to the broader digital landscape. This includes setting your intended play time and declaring your goals before starting. It also includes a design that encourages planning, gives you moments of silence in between, and closes itself once gameplay is complete. No manipulation of your desires. No ads. No cost.</p>
-          </div>`
-        },
-        {
-          id: 3,
-          title: "Principles that drive EYI's mechanics",
-          content: `<div class="content-wrapper">
-            <h2 class="medium-heading">Dopamine</h2>
+        <p>EYI was designed to reinforce mindfulness while consuming entertaining software, such that the skills may be applied to the broader digital landscape. This includes setting your intended play time and declaring your goals before starting. It also includes a design that encourages planning, gives you moments of silence in between, and closes itself once gameplay is complete. No manipulation of your desires. No ads. No cost.</p>
+      </div>`
+    },
+    {
+      id: 3,
+      title: "Why does FocusPrimer work so well?",
+      content: `<div class="content-wrapper">
+        <p><em>Here’s the deal:</em></p>
+        
+        <h2 class="medium-heading"><strong>To be productive, your brain needs to:</strong></h2>
+        <ul>
+          <li>activate neural pathways that are relevant to the task</li>
+          <li>shut down irrelevant neural pathways that hinder concentration</li>
+        </ul>
 
-            <p>Dopamine is a neurotransmitter that influences motivation and movement. The rate at which an activity or substance triggers an increase in dopamine levels directly corresponds to the addictive potential of that activity or substance. Once an addiction is in place, the brain’s ability to be motivated to do things other than the addictive stimulus becomes diminished.</p>
+        <p>This process takes some time (about 15 minutes) and is uncomfortable. Once we overcome this warm-up phase, we can get in the zone 😎</p>
+        <p>Unfortunately, during the discomfort, we're more likely to check our phones or get distracted, which adds even more irrelevant pathways and starts the process all over again 😞</p>
+        <p>We can all use a boost when it comes to finding motivation and fighting procrastination.</p>
+        <p><strong>FocusPrimer is crafted to leverage several aspects of our psychology in order to transport our mental states from a place of distraction to a state of motivated, productive focus. (it primes your focus... who would’ve thought?)</strong></p>
 
-            <p>Video games that provide the player with high levels of novel stimuli have been observed to increase the rate of dopamine release in the brain to levels surpassing those induced by nicotine.</p>
+        <h2 class="medium-heading">Step 1: Declare specifically what you need to accomplish.</h3>
+        <p>Clearly defining your goals directs your attention to where it is most needed, primes you to effectively plan for those tasks, and reduces cognitive load being burned in other areas.</p>
+        
+        <h2 class="medium-heading">Step 2: Set up your environment to be conducive to your success.</h3>
+        <p>Our subconscious will process everything in our current surroundings, regardless if we recognize its effects on us or not. Eliminating competing stimuli and ensuring you do not need to leave your environment will allow you to stay in a state of deep focus once you begin your tasks.</p>
 
-            <p>EYI’s design practices aim to steer clear of constant novel stimuli in order to keep stimulation at manageable levels. This approach helps prevent dopamine levels from soaring to heights that could foster strong habitual behavior.</p>
+        <h2 class="medium-heading">Step 3: Prime relevant skills for your work.</h3>
+        <p>The exercises chosen have been developed to effectively activate and even improve relevant cognitive skills that carry over to several facets of work and life. Have fun with them!</p>
 
-            <p>Mindfulness practices during highly dopaminergic activities have been shown to train the brain to shift from a state that is continuously seeking more, to a state that can be satiated in the current moment. This provides an opportunity for players to use EYI as a training ground where there is enough stimulation to keep focus, but not so much that it makes mindfulness overly difficult. This, in turn, can help reshape how the brain processes media consumption, helping to combat compulsive video game habits.</p>
+        <h2 class="medium-heading">Step 4: Do nothing.</h3>
+        <p>Ironically, this is the most powerful part of the whole ritual. Not only will your brain have time to shut down irrelevant pathways during this, you will also activate your brain’s “default mode network” which will inadvertently plan for what to do once the break is over. Furthermore, this discomfort and boredom will put your brain in a state of reduced dopamine, which means that when it is finished, your motivation and attention will rebound upwards, making your work feel much more engaging.</p>
 
-            <h2 class="medium-heading">Selective Attention</h2>
-
-            <p>Selective attention is a cognitive skill that allows individuals to concentrate on specific stimuli while filtering out distractions.</p>
-
-            <p>This skill is trained by having several projectiles on the screen at once. A projectile only becomes relevant when it enters a specific range, making the player direct their focus to a certain area while filtering out the other projectiles that are not yet relevant.</p>
-
-            <p>Selective attention is guided by the visual and auditory cues that concurrently require the brain to make use of pattern recognition processes to interpret these cues. This is leveraged by having distinguishable, visible patterns in the projectile’s path and speed, as well as auditory patterns in the music’s rhythms that connect with the timing in which the projectile should be addressed.</p>
-
-            <p>Selective attention is often influenced by the level of challenge presented. This is leveraged by having a range of levels that can easily be tuned to a specific player’s ability.</p>
-
-            <p>The brain’s development of selective attention is reinforced by sensory feedback. This principle is leveraged by generating a wave of flower petals that disperse on a correctly-timed spark.</p>
-
-            <h2 class="medium-heading">Music Therapy</h2>
-
-            <p>Certain musical elements, such as tempo and key, have been shown to significantly impact physiological metrics such as heartrate and blood pressure, which correspond very strongly with emotional states.</p>
-
-            <p>Lower heartrate and blood pressure levels are associated with calmness, but also lethargy, while higher levels are associated with positive engagement, but also stress. This is leveraged by having several tracks with different keys and tempos that can promote whatever result the player requires at that time, whether it be relaxation or more intense engagement.</p>
-
-            <p>Music has been shown to exercise cognitive functions, including memory, attention, and problem-solving: engaging with music requires the brain to process auditory information in complex ways.</p>
-
-            <p>Listening to music for 10–30 minutes in between bouts of studying or other focused work has been shown to enhance cognition, motivation, and the ability to learn.</p>
-
-            <p>Group musical activities have been historically observed to foster a sense of community and connection within humans. Multiplayer modes where players are enjoying music along with collaboration or competition will help foster a stronger sense of community within EYI’s player base.</p>
-
-            <h2 class="medium-heading">Optical Flow</h2>
-
-            <p>Optical Flow refers to patterns in eye movements. Certain optical flows have been shown to quiet neural circuits responsible for stress.</p>
-
-            <p>The projectile paths are engineered to create certain optical flows by having the player’s eyes follow them. For example, on a wide screen, alternating between a straight linear path and a back-and-forth path between the left and right corners creates an extreme lateral optical flow that has been shown to alleviate stress.</p>
-
-            <h2 class="medium-heading">Panoramic Vision</h2>
-
-            <p>Panoramic Vision, also known as wide-angle vision, refers to the ability to perceive a broad visual field, capturing a wide range of information without focusing on a specific point.</p>
-
-            <p>Intentionally practicing panoramic vision has been shown to enhance the brain's ability to focus in a near-permanent way.</p>
-
-            <p>Panoramic vision is leveraged by having multiple projectiles coming at different speeds that surround the screen all at once. Panoramic vision is required to keep track of everything at once so that one does not pass your range while you are focusing on another.</p>
-
-            <h2 class="medium-heading">Embodiment</h2>
-
-            <p>Embodiment refers to the principle that cognitive processes are closely connected to and influenced by the body and its interactions with the environment.</p>
-
-            <p>The physical actions required for gameplay, namely tapping or swiping in sync with the rhythm, make use of kinesthetic engagement which can enhance the player's sense of embodiment, strengthening the connection between physical and mental perceptions.</p>
-
-            <p>Embodied cognition theories propose that cognitive processes are intertwined with sensorimotor experiences, which is leveraged by requiring players to synchronize their movements with the rhythm, creating a sensorimotor connection.</p>
-
-            <p>Embodied cognition also involves a sense of spatial presence. This is leveraged by making it so that a projectile can only be addressed when it occupies a certain space on the field.</p>
-
-            <p>Embodiment allows for expressive movement to convey emotions and intentions. Having a tap convey the intention of addressing a thought in your consciousness can translate to practices in mindfulness.</p>
-
-            <h2 class="medium-heading">Flow State</h2>
-
-            <p>The flow state is a mental state in which a person experiences elevated levels of immersion, energy, focus, and enjoyment while pursuing an activity.</p>
-
-            <p>The flow state is triggered when someone is challenged to a degree that comes incredibly close to or slightly surpasses their degree of skill in a certain activity.</p>
-
-            <p>Triggering the flow state repeatedly has shown to increase an individual's ability to focus and perform at a high level in general—not just in the specific task that triggered the state.</p>
-
-            <p>Gameplay can be very easily tuned to challenge a player to their specific ability level.</p>
-
-            <p>Factors like music and scoring can add a sense of added importance to the action, which is crucial in triggering flow.</p>
-
-            <h2 class="medium-heading">Breathing Exercises</h2>
-
-            <p>Breath-work and breathing exercises have been extensively observed to provide a myriad of mental and physical health benefits.</p>
-
-            <p>Dynamic timing systems allow for players to input their own inhale and exhale lengths so that the sequence timings will adjust to match the player.</p>
-
-            <p>Sequences can then be made to guide the player through personalized breathing protocols.</p>
-
-            <h2 class="medium-heading">Multisensory Integration</h2>
-
-            <p>Multisensory Integration involves the brain's ability to combine information from different sensory modalities, such as sight, sound, and touch to create a unified perception of the environment. This enables rapid and accurate behavior.</p>
-
-            <p>Multisensory Integration benefits from cross-modal associations, where stimuli from one modality influence the perception of stimuli in another modality. This is heavily leveraged by the linked connection between the tactile touch of the key, the sound of the musical cue, and the visual of the spark/projectile/petals.</p>
-          </div>
-          `
-        }
-      ];
+        <h2 class="medium-heading">Step 5: Go forth!</h3>
+        <p>Your brain has been primed to pursue your goals. You’ve also reinforced a healthy ritual that will further strengthen the signal to your brain that it’s time to focus. 😁</p>
+      </div>`
+    }
+  ];
 
       const buttonsGrid = document.getElementById('buttonsGrid');
       const contentDisplay = document.getElementById('contentDisplay');
@@ -549,7 +632,6 @@
           <a href="https://www.reddit.com/r/bliblo/" target="_blank" class="social-media-link w-inline-block"><img src="images/reddit.svg" loading="lazy" alt="" class="social-media-icon"></a>
         </div>
       </div>
-      <div> Email: info@bliblo.studio </div>
       <div class="footer-flex-container">
         <div class="footer-brand-content"></div>
         <div data-w-id="a91eae88-2cd2-a6a2-03b1-a73f4b02b005" class="footer-copyright">
