@@ -2280,15 +2280,16 @@ figcaption {
 }
 
 .mission-border{
-  width: 95%;
   margin: 0 auto;
   padding: 40px 30px;
+  /**
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1111);
   box-shadow:
   0 0 15px rgba(255, 255, 255, 0.6),
   0 0 30px rgba(255, 255, 255, 0.4),
   inset 0 0 10px rgba(255, 255, 255, 0.2);
+  **/
 }
 
 @media screen and (min-width: 1555px) {
